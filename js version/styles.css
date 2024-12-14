@@ -1,0 +1,17 @@
+body {
+    background-color: tan;
+}
+
+.chipStats {
+    padding: 5vh;
+}
+
+.rollImage {
+    width: 40vh;
+    height: 20vh;
+}
+
+.rollImage:hover {
+    opacity: .4;
+    
+}
