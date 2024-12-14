@@ -82,9 +82,10 @@ function roll() {
         }
     }
 
-    pair_amount_this_round.innerHTML = pair_counts.join(', ');
-    three_of_a_kind_this_round.innerHTML = three_of_a_kind_counts.join(', ')
+    pair_amount_this_round.innerHTML = pair_counts.length
+    three_of_a_kind_this_round.innerHTML = three_of_a_kind_counts.length
 
+    
 }
 
 
