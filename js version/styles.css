@@ -55,5 +55,24 @@ body {
 .buyMoreTableCards {
     height: 10vh;
     width: 40vh;
-    place-self: right;
+}
+
+.beginGameButton {
+    width: 40vh;
+    height: 20vh;
+}
+
+.beginGameButton:hover {
+    cursor: pointer;
+    opacity: .8;
+}
+
+.beginGameButton:active {
+    opacity: .7;
+    transform: scale(1.02);
+}
+
+.buyMoreRolls {
+    height: 10vh;
+    width: 40vh;
 }

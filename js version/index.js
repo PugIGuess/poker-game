@@ -1,3 +1,15 @@
+
+function beginGame() {
+    let begin_menu = document.getElementById("beginMenu")
+    begin_menu.style.display = "none"
+    let entireRollDisplay = document.getElementById("rollGame")
+    entireRollDisplay.style.display = "block"
+}
+
+let rolls_remaining = document.querySelector('.rollsRemaining')
+
+
+
 let table_cards_this_round = document.querySelector('.tableCardsThisRound')
 let parsed_table_cards_this_round = parseFloat(table_cards_this_round)
 
@@ -46,6 +58,12 @@ let table_card_amount = 3
 
 // roll function
 function roll() { 
+    if (rolls_remaining.innerHTML > 0) {
+
+
+    
+    rolls_remaining.innerHTML -= 1
+
     let table_deck_this_round = []
     let user_deck_this_round = []
     counts = []
@@ -154,12 +172,20 @@ function roll() {
     total_chips.innerHTML = Math.round(parsed_total_chips)
 
 }
+}
 
 function openShop() {
     let entireRollDisplay = document.getElementById("rollGame")
     entireRollDisplay.style.display = "none"
     let shopDisplay = document.getElementById("shopMenu")
     shopDisplay.style.display = "block"
+
+    let shop_rolls_remaining = document.querySelector('.shopRollsRemaining')
+    let parsed_rolls_remaining = parseFloat(rolls_remaining.innerHTML)
+    shop_rolls_remaining.innerHTML = parsed_rolls_remaining
+
+    let shop_chip_count_total = document.querySelector('.shopChipCountTotal')
+    shop_chip_count_total.innerHTML = parsed_total_chips
 }
 
 function closeShop() {
@@ -171,12 +197,37 @@ function closeShop() {
 }
 
 let tableCardCost = document.querySelector('.tableCardCost')
-let parsedTableCardCost = Math.round(tableCardCost)
+let parsedTableCardCost = parseFloat(tableCardCost.innerHTML)
 
 function purchaseTableCard() {
-    if (total_chips >= parsedTableCardCost) {
+    if (parsed_total_chips >= parsedTableCardCost) {
+        parsed_total_chips -= parsedTableCardCost
+        total_chips.innerHTML = parsed_total_chips
+
         table_card_amount += 1
-        parsed_total_chips -= tableCardCost
-        total_chips.innerHTML = Math.round(parsed_total_chips)
+
+        let shop_chip_count_total = document.querySelector('.shopChipCountTotal')
+        shop_chip_count_total.innerHTML = parsed_total_chips
+    }
+}
+
+let moreRollsCost = document.querySelector('.moreRollCost')
+let parsedMoreRollCost = parseFloat(moreRollsCost.innerHTML)
+
+function purchaseMoreRolls() {
+    if (parsed_total_chips >= parsedMoreRollCost) {
+        parsed_total_chips -= parsedMoreRollCost
+        total_chips.innerHTML = parsed_total_chips
+
+        let shop_rolls_remaining = document.querySelector('.shopRollsRemaining')
+
+        let parsed_rolls_remaining = parseFloat(rolls_remaining.innerHTML)
+        parsed_rolls_remaining += 1
+        rolls_remaining.innerHTML = parsed_rolls_remaining
+
+        shop_rolls_remaining.innerHTML = parsed_rolls_remaining
+
+        let shop_chip_count_total = document.querySelector('.shopChipCountTotal')
+        shop_chip_count_total.innerHTML = parsed_total_chips
     }
 }

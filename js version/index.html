@@ -9,11 +9,9 @@
 </head>
 <body>
 
-    <section class="begin_menu">
-
-
-        
-
+    <section id="beginMenu">
+        <img src="./assets/begin_game_icon.png" class="beginGameButton"
+        onclick="beginGame()" alt="">
     </section>
 
 
@@ -28,7 +26,7 @@
 
 
 
-    <section id="rollGame">
+    <section id="rollGame" style="display: none;">
     <div class="cardsDisplay">
 
     </div>
@@ -59,6 +57,9 @@
         <div> 
         Chip Count Total: <span class="chipCountTotal">0</span>
         </div>
+        <div>
+        Rolls Remaining: <span class="rollsRemaining">5</span>
+        </div>
     </div>
 
 
@@ -73,8 +74,20 @@
 
     <section class="shop" id="shopMenu" style="display:none">
         <img src="./assets/back_to_game_icon.png" class="backToGameIconFromShop" onclick="closeShop()" alt="">
+
+        <div>
+            Chip Count Total: <span class="shopChipCountTotal">0</span>
+        </div>
+        <div>
+            Rolls Remaining: <span class="shopRollsRemaining">0</span>
+        </div>
+
         <div>
             <button class="buyMoreTableCards" onclick="purchaseTableCard()">Purchase More Table Cards (Cost: <span class="tableCardCost">20</span>)</button>
+        </div>
+        <br>
+        <div>
+            <button class="buyMoreRolls" onclick="purchaseMoreRolls()">Purchase More Rolls (Cost: <span class="moreRollCost">10</span>)</button>
         </div>
      
     
