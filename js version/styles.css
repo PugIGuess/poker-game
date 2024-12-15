@@ -12,6 +12,42 @@ body {
 }
 
 .rollImage:hover {
-    opacity: .4;
+    opacity: .8;
+    cursor: pointer;
     
+}
+
+.rollImage:active {
+    opacity: .7;
+    transform: scale(1.02);
+}
+
+.shopImage {
+    width: 40vh;
+    height: 20vh;
+}
+
+.shopImage:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+
+.shopImage:active {
+    opacity: .7;
+    transform: scale(1.02);
+}
+
+.backToGameIconFromShop {
+    width: 40vh;
+    height: 20vh;
+}
+
+.backToGameIconFromShop:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+
+.backToGameIconFromShop:active {
+    opacity: .7;
+    transform: scale(1.02);
 }

@@ -28,7 +28,7 @@
 
 
 
-    <section class="rollGame">
+    <section id="rollGame">
     <div class="cardsDisplay">
 
     </div>
@@ -63,8 +63,16 @@
 
 
     <div class="roll">
-        <img src="./assets/roll_icon.png" alt="" class="rollImage" onclick="roll()">
+        <img src="./assets/roll_icon_fr.png" alt="" class="rollImage" onclick="roll()">
     </div>
+    <div>
+        <img src="./assets/shop_icon.png" class="shopImage" onclick="openShop()" alt="">
+    </div>
+    </section>
+
+
+    <section class="shop" id="shopMenu" style="display:none">
+        <img src="./assets/back_to_game_icon.png" class="backToGameIconFromShop" onclick="closeShop()" alt="">
     </section>
 
 

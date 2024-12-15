@@ -155,5 +155,17 @@ function roll() {
 
 }
 
+function openShop() {
+    let entireRollDisplay = document.getElementById("rollGame")
+    entireRollDisplay.style.display = "none"
+    let shopDisplay = document.getElementById("shopMenu")
+    shopDisplay.style.display = "block"
+}
 
+function closeShop() {
+    let shopDisplay = document.getElementById("shopMenu");
+    shopDisplay.style.display = "none";
 
+    let entireRollDisplay = document.getElementById("rollGame");
+    entireRollDisplay.style.display = "block"; 
+}
