@@ -13,17 +13,31 @@ let parsed_chip_count_this_round = parseFloat(chip_count_this_round)
 
 let pair = 0
 let pair_multiplier = 1
-let pair_value = 20 * pair_multiplier
+let pair_value = 10 * pair_multiplier
 
 let three_of_a_kind = 0
 let three_of_a_kind_multiplier = 1
-let three_of_a_kind_value = 20 * three_of_a_kind_multiplier
+let three_of_a_kind_value = 25 * three_of_a_kind_multiplier
+
+let four_of_a_kind = 0
+let four_of_a_kind_multiplier = 1
+let four_of_a_kind_value = 50 * four_of_a_kind_multiplier
+
+let five_of_a_kind = 0
+let five_of_a_kind_multiplier = 1
+let five_of_a_kind_value = 100 * five_of_a_kind_multiplier
 
 let pair_amount_this_round = document.querySelector('.pairAmountThisRound')
 let parsed_pair_amount_this_round = parseFloat(pair_amount_this_round)
 
 let three_of_a_kind_this_round = document.querySelector('.threeOfAKindThisRound')
 let parsed_three_of_a_kind_this_round = parseFloat(three_of_a_kind_this_round)
+
+let four_of_a_kind_this_round = document.querySelector('.fourOfAKindThisRound')
+let parsed_four_of_a_kind_this_round = parseFloat(four_of_a_kind_this_round)
+
+let five_of_a_kind_this_round = document.querySelector('.fiveOfAKindThisRound')
+let parsed_five_of_a_kind_this_round = parseFloat(five_of_a_kind_this_round)
 
 let deck = [1,2,3,4,5,6,7,8,9,10]
 
@@ -73,6 +87,8 @@ function roll() {
 
     pair_counts = []
     three_of_a_kind_counts = []
+    four_of_a_kind_counts = []
+    five_of_a_kind_counts = []
     for (i = 0; i < counts.length; i++) {
         if (counts[i] == 2) {
             pair_counts = pair_counts.concat(counts[i])
@@ -80,12 +96,63 @@ function roll() {
         else if (counts[i] == 3) {
             three_of_a_kind_counts = three_of_a_kind_counts.concat(counts[i])
         }
+        else if (counts[i] == 4) {
+            four_of_a_kind_counts = four_of_a_kind_counts.concat(counts[i])
+        }
+        else if (counts[i] == 5) {
+            five_of_a_kind_counts = five_of_a_kind_counts.concat(counts[i])
+        }
     }
 
     pair_amount_this_round.innerHTML = pair_counts.length
-    three_of_a_kind_this_round.innerHTML = three_of_a_kind_counts.length
+    let pair_display = document.getElementById("pairDisplay")
 
-    
+    if (pair_counts.length > 0) {
+        pair_display.style.display = "block"
+    }
+    else if (pair_counts.length == 0) {
+        pair_display.style.display = "none"
+    }
+
+    three_of_a_kind_this_round.innerHTML = three_of_a_kind_counts.length
+    let three_of_a_kind_display = document.getElementById("threeOfAKindDisplay")
+
+    if (three_of_a_kind_counts.length > 0) {
+        three_of_a_kind_display.style.display = "block"
+    }
+    else if (three_of_a_kind_counts.length == 0) {
+        three_of_a_kind_display.style.display = "none"
+    }
+
+    four_of_a_kind_this_round.innerHTML = four_of_a_kind_counts.length
+    let four_of_a_kind_display = document.getElementById("fourOfAKindDisplay")
+
+    if (four_of_a_kind_counts.length > 0) {
+        four_of_a_kind_display.style.display = "block"
+    }
+    else if (four_of_a_kind_counts.length == 0) {
+        four_of_a_kind_display.style.display = "none"
+    }
+
+    five_of_a_kind_this_round.innerHTML = five_of_a_kind_counts.length
+    let five_of_a_kind_display = document.getElementById("fiveOfAKindDisplay")
+
+    if (five_of_a_kind_counts.length > 0) {
+        five_of_a_kind_display.style.display = "block"
+    }
+    else if (five_of_a_kind_counts.length == 0) {
+        five_of_a_kind_display.style.display = "none"
+    }
+
+    pair_chips_this_round = pair_counts.length * pair_value
+    three_of_a_kind_chips_this_round = three_of_a_kind_counts.length * three_of_a_kind_value
+    four_of_a_kind_chips_this_round = four_of_a_kind_counts.length * four_of_a_kind_value
+    five_of_a_kind_chips_this_round = five_of_a_kind_counts.length * five_of_a_kind_value
+
+    chip_count_this_round.innerHTML = pair_chips_this_round + three_of_a_kind_chips_this_round + four_of_a_kind_chips_this_round + five_of_a_kind_chips_this_round
+    parsed_total_chips += pair_chips_this_round + three_of_a_kind_chips_this_round + four_of_a_kind_chips_this_round + five_of_a_kind_chips_this_round
+    total_chips.innerHTML = Math.round(parsed_total_chips)
+
 }
 
 
