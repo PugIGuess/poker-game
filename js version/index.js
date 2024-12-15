@@ -169,3 +169,14 @@ function closeShop() {
     let entireRollDisplay = document.getElementById("rollGame");
     entireRollDisplay.style.display = "block"; 
 }
+
+let tableCardCost = document.querySelector('.tableCardCost')
+let parsedTableCardCost = Math.round(tableCardCost)
+
+function purchaseTableCard() {
+    if (total_chips >= parsedTableCardCost) {
+        table_card_amount += 1
+        parsed_total_chips -= tableCardCost
+        total_chips.innerHTML = Math.round(parsed_total_chips)
+    }
+}

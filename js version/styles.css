@@ -51,3 +51,9 @@ body {
     opacity: .7;
     transform: scale(1.02);
 }
+
+.buyMoreTableCards {
+    height: 10vh;
+    width: 40vh;
+    place-self: right;
+}
