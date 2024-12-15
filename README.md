@@ -1,5 +1,4 @@
 # poker-game
-currently a simple, singleplayer, roguelike (sorta) poker game.
-you can upgrade the table card size, amount of rerolls, and soon to be multipliers.
-the game will expand further than it's at now, which is just stage 1.
-I also plan to move this to javascript probably after I get this stage done.
+simple fun poker (not really) game where you can shuffle and play, get chips based on if you have pairs, three pairs, etc. and spend those chips in the shop.
+
+I plan to expand this more, switching genres as you progress in the game.
